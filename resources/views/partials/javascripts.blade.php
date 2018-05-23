@@ -32,7 +32,7 @@
 <script>
     $.extend(true, $.fn.dataTable.defaults, {
         "language": {
-            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/English.json"
+            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/{{ config('app.languages')[app()->getLocale()] }}.json"
         }
     });
 
@@ -63,6 +63,15 @@
 
  
 
-
+<script>
+    $(document).ready(function () {
+        $(".notifications-menu").on('click', function () {
+            if (!$(this).hasClass('open')) {
+                $('.notifications-menu .label-warning').hide();
+                $.get('internal_notifications/read');
+            }
+        });
+    });
+</script>
 
 @yield('javascript')

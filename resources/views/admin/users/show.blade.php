@@ -30,7 +30,67 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </div><!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    
+<li role="presentation" class="active"><a href="#internal_notifications" aria-controls="internal_notifications" role="tab" data-toggle="tab">Notifications</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    
+<div role="tabpanel" class="tab-pane active" id="internal_notifications">
+<table class="table table-bordered table-striped {{ count($internal_notifications) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('global.internal-notifications.fields.text')</th>
+                        <th>@lang('global.internal-notifications.fields.link')</th>
+                        <th>@lang('global.internal-notifications.fields.users')</th>
+                                                <th>&nbsp;</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($internal_notifications) > 0)
+            @foreach ($internal_notifications as $internal_notification)
+                <tr data-entry-id="{{ $internal_notification->id }}">
+                    <td field-key='text'>{{ $internal_notification->text }}</td>
+                                <td field-key='link'>{{ $internal_notification->link }}</td>
+                                <td field-key='users'>
+                                    @foreach ($internal_notification->users as $singleUsers)
+                                        <span class="label label-info label-many">{{ $singleUsers->name }}</span>
+                                    @endforeach
+                                </td>
+                                                                <td>
+                                    @can('view')
+                                    <a href="{{ route('internal_notifications.show',[$internal_notification->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
+                                    @endcan
+                                    @can('edit')
+                                    <a href="{{ route('internal_notifications.edit',[$internal_notification->id]) }}" class="btn btn-xs btn-info">@lang('global.app_edit')</a>
+                                    @endcan
+                                    @can('delete')
+{!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
+                                        'route' => ['internal_notifications.destroy', $internal_notification->id])) !!}
+                                    {!! Form::submit(trans('global.app_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="8">@lang('global.app_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+</div>
 
             <p>&nbsp;</p>
 

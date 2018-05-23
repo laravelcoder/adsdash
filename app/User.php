@@ -39,8 +39,26 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_user');
     }
     
-    
-    
+    public function topics() {
+        return $this->hasMany(MessengerTopic::class, 'receiver_id')->orWhere('sender_id', $this->id);
+    }
+
+    public function inbox()
+    {
+        return $this->hasMany(MessengerTopic::class, 'receiver_id');
+    }
+
+    public function outbox()
+    {
+        return $this->hasMany(MessengerTopic::class, 'sender_id');
+    }
+    public function internalNotifications()
+    {
+        return $this->belongsToMany(InternalNotification::class)
+            ->withPivot('read_at')
+            ->orderBy('internal_notification_user.created_at', 'desc')
+            ->limit(10);
+    }
 
     public function sendPasswordResetNotification($token)
     {

@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
     /**
@@ -118,9 +121,16 @@ class UsersController extends Controller
         if (! Gate::allows('user_view')) {
             return abort(401);
         }
+        
+        $roles = \App\Role::get()->pluck('title', 'id');
+$internal_notifications = \App\InternalNotification::whereHas('users',
+                    function ($query) use ($id) {
+                        $query->where('id', $id);
+                    })->get();
+
         $user = User::findOrFail($id);
 
-        return view('admin.users.show', compact('user'));
+        return view('admin.users.show', compact('user', 'internal_notifications'));
     }
 
 
