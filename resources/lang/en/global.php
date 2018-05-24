@@ -4,7 +4,51 @@ return [
 		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
 		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
+		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',			'team' => 'Team',		],	],
+		'management' => [		'title' => 'Advertiser Management',		'fields' => [		],	],
+		'contact-companies' => [		'title' => 'Companies',		'fields' => [			'name' => 'Company name',			'address' => 'Address',			'website' => 'Website',			'email' => 'Email',			'logo' => 'Logo',		],	],
+		'contacts' => [		'title' => 'Contacts',		'fields' => [			'company' => 'Company',			'first-name' => 'First name',			'last-name' => 'Last name',			'phone1' => 'Phone 1',			'phone2' => 'Phone 2',			'email' => 'Email',			'skype' => 'Skype',			'address' => 'Address',		],	],
+		'internal-notifications' => [		'title' => 'Notifications',		'fields' => [			'text' => 'Text',			'link' => 'Link',			'users' => 'Users',		],	],
+		'content-management' => [		'title' => 'Content management',		'fields' => [		],	],
+		'content-categories' => [		'title' => 'Categories',		'fields' => [			'title' => 'Category',			'slug' => 'Slug',		],	],
+		'content-tags' => [		'title' => 'Tags',		'fields' => [			'title' => 'Tag',			'slug' => 'Slug',		],	],
+		'content-pages' => [		'title' => 'Pages',		'fields' => [			'title' => 'Title',			'category-id' => 'Categories',			'tag-id' => 'Tags',			'page-text' => 'Text',			'excerpt' => 'Excerpt',			'featured-image' => 'Featured image',		],	],
+		'ads-dashboard' => [		'title' => 'Ads dashboard',		'fields' => [		],	],
+		'channels' => [		'title' => 'Channels',		'fields' => [		],	],
+		'profiles' => [		'title' => 'Profiles',		'fields' => [			'image' => 'Image',			'created-by' => 'Created by',		],	],
+		'client-management' => [		'title' => 'Client management',		'fields' => [		],	],
+		'client-management-settings' => [		'title' => 'Client management settings',		'fields' => [		],	],
+		'client-currencies' => [		'title' => 'Currencies',		'fields' => [		],	],
+		'client-transaction-types' => [		'title' => 'Transaction types',		'fields' => [		],	],
+		'client-income-sources' => [		'title' => 'Income sources',		'fields' => [		],	],
+		'client-statuses' => [		'title' => 'Client statuses',		'fields' => [		],	],
+		'client-project-statuses' => [		'title' => 'Project statuses',		'fields' => [		],	],
+		'clients' => [		'title' => 'Clients',		'fields' => [		],	],
+		'client-projects' => [		'title' => 'Projects',		'fields' => [		],	],
+		'client-notes' => [		'title' => 'Notes',		'fields' => [		],	],
+		'client-documents' => [		'title' => 'Documents',		'fields' => [		],	],
+		'client-transactions' => [		'title' => 'Transactions',		'fields' => [		],	],
+		'assets-management' => [		'title' => 'Assets management',		'fields' => [		],	],
+		'assets-categories' => [		'title' => 'Categories',		'fields' => [		],	],
+		'assets-statuses' => [		'title' => 'Statuses',		'fields' => [		],	],
+		'assets-locations' => [		'title' => 'Locations',		'fields' => [		],	],
+		'assets' => [		'title' => 'Assets',		'fields' => [		],	],
+		'assets-history' => [		'title' => 'Assets history',		'created_at' => 'Time',		'fields' => [		],	],
+		'ads' => [		'title' => 'Ads',		'fields' => [			'link' => 'Link',			'ad-label' => 'Ad label',			'ad-type' => 'Ad type',			'created-by' => 'Created by',		],	],
+		'ad-types' => [		'title' => 'Ad types',		'fields' => [			'codec' => 'Codec',			'extention' => 'Extention',			'ad' => 'Ad',		],	],
+		'teams' => [		'title' => 'Teams',		'fields' => [			'name' => 'Name',		],	],
+		'audiences' => [		'title' => 'Audiences',		'fields' => [			'name' => 'Name',			'value' => 'Value',			'companies' => 'Companies',		],	],
+		'demographics' => [		'title' => 'Demographics',		'fields' => [			'demographic' => 'Demographic',			'value' => 'Value',			'audience' => 'Audience',		],	],
+		'default-settings' => [		'title' => 'Default settings',		'fields' => [		],	],
+		'default-settings' => [		'title' => 'Default Settings',		'fields' => [		],	],
+		'user-base' => [		'title' => 'User Base',		'fields' => [			'name' => 'Name',			'value' => 'Value',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
+		'variables' => [		'title' => 'Variables',		'fields' => [			'name' => 'Name',			'value' => 'Value',		],	],
+		'response-data' => [		'title' => 'Response & Data',		'fields' => [		],	],
+		'networks' => [		'title' => 'Networks',		'fields' => [		],	],
+		'networks' => [		'title' => 'Networks',		'fields' => [			'network' => 'Network',			'network-affiliate' => 'Network Affiliate',			'provider' => 'Provider',		],	],
+		'network-stats' => [		'title' => 'Network Stats',		'fields' => [		],	],
+		'providers' => [		'title' => 'Providers',		'fields' => [			'provider' => 'Provider',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',			'network-affiliate' => 'Network affiliate',		],	],
+		'stations' => [		'title' => 'Stations',		'fields' => [			'station-label' => 'Station Label',			'channel-number' => 'Channel #',			'provider' => 'Provider',		],	],
 	'app_create' => 'Create',
 	'app_save' => 'Save',
 	'app_edit' => 'Edit',
