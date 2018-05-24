@@ -12,6 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         
+        $this->call(AssetsStatusSeed::class);
+        $this->call(ChannelSeed::class);
+        $this->call(ContentPageSeed::class);
         $this->call(PermissionSeed::class);
         $this->call(RoleSeed::class);
         $this->call(UserSeed::class);
