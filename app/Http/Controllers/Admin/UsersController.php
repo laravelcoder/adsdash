@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUsersRequest;
 use App\Http\Requests\Admin\UpdateUsersRequest;
 
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
     /**
@@ -41,8 +44,9 @@ class UsersController extends Controller
         
         $roles = \App\Role::get()->pluck('title', 'id');
 
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
-        return view('admin.users.create', compact('roles'));
+        return view('admin.users.create', compact('roles', 'teams'));
     }
 
     /**
@@ -79,10 +83,11 @@ class UsersController extends Controller
         
         $roles = \App\Role::get()->pluck('title', 'id');
 
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');
 
         $user = User::findOrFail($id);
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user', 'roles', 'teams'));
     }
 
     /**
@@ -118,9 +123,17 @@ class UsersController extends Controller
         if (! Gate::allows('user_view')) {
             return abort(401);
         }
+        
+        $roles = \App\Role::get()->pluck('title', 'id');
+
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend(trans('global.app_please_select'), '');$profiles = \App\Profile::where('created_by_id', $id)->get();$internal_notifications = \App\InternalNotification::whereHas('users',
+                    function ($query) use ($id) {
+                        $query->where('id', $id);
+                    })->get();$assets_histories = \App\AssetsHistory::where('assigned_user_id', $id)->get();$ads = \App\Ad::where('created_by_id', $id)->get();$assets = \App\Asset::where('assigned_user_id', $id)->get();
+
         $user = User::findOrFail($id);
 
-        return view('admin.users.show', compact('user'));
+        return view('admin.users.show', compact('user', 'profiles', 'internal_notifications', 'assets_histories', 'ads', 'assets'));
     }
 
 
