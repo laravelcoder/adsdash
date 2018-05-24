@@ -13,8 +13,8 @@ class UserSeedPivot extends Seeder
     {
         $items = [
             
-            1 => [
-                'role' => [1],
+            2 => [
+                'role' => [1, 3],
             ],
 
         ];

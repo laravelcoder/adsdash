@@ -185,6 +185,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         
         /*
          * Application Service Providers...
@@ -253,6 +255,11 @@ return [
         
     ],
 
-    
+    'languages' => [
+        'en' => 'English',
+        'es' => 'Spanish',
+        'fr' => 'French',
+        'ru' => 'Russian',
+    ],
 
 ];
