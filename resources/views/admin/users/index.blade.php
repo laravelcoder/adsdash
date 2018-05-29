@@ -28,6 +28,7 @@
                         <th>@lang('global.users.fields.name')</th>
                         <th>@lang('global.users.fields.email')</th>
                         <th>@lang('global.users.fields.role')</th>
+                        <th>@lang('global.users.fields.team')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -48,6 +49,7 @@
                                         <span class="label label-info label-many">{{ $singleRole->title }}</span>
                                     @endforeach
                                 </td>
+                                <td field-key='team'>{{ $user->team->name or '' }}</td>
                                                                 <td>
                                     @can('user_view')
                                     <a href="{{ route('admin.users.show',[$user->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
@@ -70,7 +72,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10">@lang('global.app_no_entries_in_table')</td>
+                            <td colspan="11">@lang('global.app_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
