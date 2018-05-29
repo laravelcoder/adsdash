@@ -4,7 +4,65 @@ return [
 		'user-management' => [		'title' => 'User management',		'fields' => [		],	],
 		'permissions' => [		'title' => 'Permissions',		'fields' => [			'title' => 'Title',		],	],
 		'roles' => [		'title' => 'Roles',		'fields' => [			'title' => 'Title',			'permission' => 'Permissions',		],	],
-		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',		],	],
+		'users' => [		'title' => 'Users',		'fields' => [			'name' => 'Name',			'email' => 'Email',			'password' => 'Password',			'role' => 'Role',			'remember-token' => 'Remember token',			'team' => 'Team',		],	],
+		'management' => [		'title' => 'Advertiser Management',		'fields' => [		],	],
+		'contact-companies' => [		'title' => 'Companies',		'fields' => [			'name' => 'Company name',			'website' => 'Website',			'email' => 'Email',			'logo' => 'Logo',			'address' => 'Address',			'city' => 'City',			'state' => 'State',			'zipcode' => 'Zipcode',		],	],
+		'contacts' => [		'title' => 'Contacts',		'fields' => [			'company' => 'Company',			'first-name' => 'First name',			'last-name' => 'Last name',			'email' => 'Email',			'skype' => 'Skype',			'address' => 'Address',			'created-by' => 'Created by',			'photo' => 'Photo',			'created-by-team' => 'Created by Team',			'about' => 'About',		],	],
+		'internal-notifications' => [		'title' => 'Notifications',		'fields' => [			'text' => 'Text',			'link' => 'Link',			'users' => 'Users',		],	],
+		'content-management' => [		'title' => 'Content management',		'fields' => [		],	],
+		'content-categories' => [		'title' => 'Categories',		'fields' => [			'title' => 'Category',			'slug' => 'Slug',		],	],
+		'content-tags' => [		'title' => 'Tags',		'fields' => [			'title' => 'Tag',			'slug' => 'Slug',		],	],
+		'content-pages' => [		'title' => 'Pages',		'fields' => [			'title' => 'Title',			'category-id' => 'Categories',			'tag-id' => 'Tags',			'page-text' => 'Text',			'excerpt' => 'Excerpt',			'featured-image' => 'Featured image',			'template' => 'Template',		],	],
+		'ads-dashboard' => [		'title' => 'Ads dashboard',		'fields' => [		],	],
+		'channels' => [		'title' => 'Channels',		'fields' => [		],	],
+		'profiles' => [		'title' => 'Profiles',		'fields' => [		],	],
+		'client-management' => [		'title' => 'Client management',		'fields' => [		],	],
+		'client-management-settings' => [		'title' => 'Client management settings',		'fields' => [		],	],
+		'client-currencies' => [		'title' => 'Currencies',		'fields' => [		],	],
+		'client-transaction-types' => [		'title' => 'Transaction types',		'fields' => [		],	],
+		'client-income-sources' => [		'title' => 'Income sources',		'fields' => [		],	],
+		'client-statuses' => [		'title' => 'Client statuses',		'fields' => [		],	],
+		'client-project-statuses' => [		'title' => 'Project statuses',		'fields' => [		],	],
+		'clients' => [		'title' => 'Clients',		'fields' => [		],	],
+		'client-projects' => [		'title' => 'Projects',		'fields' => [		],	],
+		'client-notes' => [		'title' => 'Notes',		'fields' => [		],	],
+		'client-documents' => [		'title' => 'Documents',		'fields' => [		],	],
+		'client-transactions' => [		'title' => 'Transactions',		'fields' => [		],	],
+		'assets-management' => [		'title' => 'Assets management',		'fields' => [		],	],
+		'assets-categories' => [		'title' => 'Categories',		'fields' => [		],	],
+		'assets-statuses' => [		'title' => 'Statuses',		'fields' => [		],	],
+		'assets-locations' => [		'title' => 'Locations',		'fields' => [		],	],
+		'assets' => [		'title' => 'Assets',		'fields' => [		],	],
+		'assets-history' => [		'title' => 'Assets history',		'created_at' => 'Time',		'fields' => [		],	],
+		'ads' => [		'title' => 'Ads',		'fields' => [			'ad-label' => 'Ad label',			'created-by' => 'Created by',			'ad-description' => 'Ad Description',			'total-impressions' => 'Total Impressions',			'total-networks' => 'Total Networks',			'total-channels' => 'Total Channels',		],	],
+		'ad-types' => [		'title' => 'Ad types',		'fields' => [		],	],
+		'teams' => [		'title' => 'Teams',		'fields' => [			'name' => 'Name',		],	],
+		'audiences' => [		'title' => 'Audiences',		'fields' => [			'name' => 'Name',			'value' => 'Value',			'companies' => 'Companies',		],	],
+		'demographics' => [		'title' => 'Demographics',		'fields' => [			'demographic' => 'Demographic',			'value' => 'Value',			'audience' => 'Audience',		],	],
+		'default-settings' => [		'title' => 'Default settings',		'fields' => [		],	],
+		'default-settings' => [		'title' => 'Default Settings',		'fields' => [		],	],
+		'user-base' => [		'title' => 'User Base',		'fields' => [			'name' => 'Name',			'value' => 'Value',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
+		'variables' => [		'title' => 'Variables',		'fields' => [			'name' => 'Name',			'value' => 'Value',		],	],
+		'response-data' => [		'title' => 'Response & Data',		'fields' => [		],	],
+		'networks' => [		'title' => 'Networks',		'fields' => [		],	],
+		'networks' => [		'title' => 'Networks',		'fields' => [			'network' => 'Network',			'network-affiliate' => 'Network Affiliate',			'provider' => 'Provider',		],	],
+		'network-stats' => [		'title' => 'Network Stats',		'fields' => [		],	],
+		'providers' => [		'title' => 'Providers',		'fields' => [			'provider' => 'Provider',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
+		'stations' => [		'title' => 'Stations',		'fields' => [			'station-label' => 'Station Label',			'channel-number' => 'Channel #',			'provider' => 'Provider',		],	],
+		'ad-responses' => [		'title' => 'Ad Responses',		'fields' => [			'station' => 'Station',			'time' => 'Time',			'impressions' => 'Impressions',			'non-impressions' => 'Non Impressions',			'cypi-id' => 'Cypi ID',		],	],
+		'clipdb' => [		'title' => 'ClipDB',		'fields' => [			'clip-label' => 'Clip Label',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
+		'agent' => [		'title' => 'Agent',		'fields' => [		],	],
+		'agents' => [		'title' => 'Agents',		'fields' => [			'company' => 'Company',			'first-name' => 'First name',			'last-name' => 'Last name',			'phone1' => 'Phone 1',			'phone2' => 'Phone 2',			'email' => 'Email',			'skype' => 'Skype',			'address' => 'Address',			'photo' => 'Photo',			'about' => 'About',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
+		'phones' => [		'title' => 'Phones',		'fields' => [			'phone-number' => 'Phone number',			'contact' => 'Contact',			'agent' => 'Agent',			'company' => 'Company',		],	],
+		'network-dashboard' => [		'title' => 'Network Channels Dashboard',		'fields' => [		],	],
+		'templates' => [		'title' => 'Page Templates',		'fields' => [			'template-name' => 'Template Name',			'layout' => 'Layout',			'description' => 'Description',			'template-link' => 'Template Link',		],	],
+		'stylesheet' => [		'title' => 'Stylesheet',		'fields' => [			'link' => 'Link',			'template' => 'Template',		],	],
+		'javascript' => [		'title' => 'Javascript',		'fields' => [		],	],
+		'top-script' => [		'title' => 'Top script',		'fields' => [		],	],
+		'bottom-scripts' => [		'title' => 'Bottom Scripts',		'fields' => [			'script' => 'Script',			'name' => 'Name',			'jquery' => 'Jquery',			'template' => 'Template',			'created-by' => 'Created by',			'created-by-team' => 'Created by Team',		],	],
+		'top-scripts' => [		'title' => 'Top scripts',		'fields' => [		],	],
+		'scripts' => [		'title' => 'Scripts',		'fields' => [		],	],
+		'top-scripts' => [		'title' => 'Top scripts',		'fields' => [			'name' => 'Name',			'script' => 'Script',			'jquery' => 'Jquery',			'template' => 'Template',		],	],
 	'app_create' => 'Create',
 	'app_save' => 'Save',
 	'app_edit' => 'Edit',
