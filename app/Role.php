@@ -13,7 +13,8 @@ class Role extends Model
 {
     protected $fillable = ['title'];
     protected $hidden = [];
-    
+    public static $searchable = [
+    ];
     
     
     public function permission()

@@ -24,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        
+        $contactcompanies = \App\ContactCompany::latest()->limit(5)->get(); 
+        $contacts = \App\Contact::latest()->limit(5)->get(); 
+        $agents = \App\Agent::latest()->limit(5)->get(); 
+
+        return view('home', compact( 'contactcompanies', 'contacts', 'agents' ));
     }
 }
