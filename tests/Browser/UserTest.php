@@ -29,12 +29,16 @@ class UserTest extends DuskTestCase
                 ->type("password", $user->password)
                 ->select('select[name="role[]"]', $relations[0]->id)
                 ->select('select[name="role[]"]', $relations[1]->id)
+                ->select("team_id", $user->team_id)
+                ->check("approved")
                 ->press('Save')
                 ->assertRouteIs('admin.users.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $user->name)
                 ->assertSeeIn("tr:last-child td[field-key='email']", $user->email)
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:first-child", $relations[0]->title)
-                ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title);
+                ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title)
+                ->assertSeeIn("tr:last-child td[field-key='team']", $user->team->name)
+                ->assertChecked("approved");
         });
     }
 
@@ -58,12 +62,16 @@ class UserTest extends DuskTestCase
                 ->type("password", $user2->password)
                 ->select('select[name="role[]"]', $relations[0]->id)
                 ->select('select[name="role[]"]', $relations[1]->id)
+                ->select("team_id", $user2->team_id)
+                ->check("approved")
                 ->press('Update')
                 ->assertRouteIs('admin.users.index')
                 ->assertSeeIn("tr:last-child td[field-key='name']", $user2->name)
                 ->assertSeeIn("tr:last-child td[field-key='email']", $user2->email)
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:first-child", $relations[0]->title)
-                ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title);
+                ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title)
+                ->assertSeeIn("tr:last-child td[field-key='team']", $user2->team->name)
+                ->assertChecked("approved");
         });
     }
 
@@ -86,7 +94,9 @@ class UserTest extends DuskTestCase
                 ->assertSeeIn("td[field-key='name']", $user->name)
                 ->assertSeeIn("td[field-key='email']", $user->email)
                 ->assertSeeIn("tr:last-child td[field-key='role'] span:first-child", $relations[0]->title)
-                ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title);
+                ->assertSeeIn("tr:last-child td[field-key='role'] span:last-child", $relations[1]->title)
+                ->assertSeeIn("td[field-key='team']", $user->team->name)
+                ->assertNotChecked("approved");
         });
     }
 

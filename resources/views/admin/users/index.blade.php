@@ -28,6 +28,8 @@
                         <th>@lang('global.users.fields.name')</th>
                         <th>@lang('global.users.fields.email')</th>
                         <th>@lang('global.users.fields.role')</th>
+                        <th>@lang('global.users.fields.team')</th>
+                        <th>@lang('global.users.fields.approved')</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -48,6 +50,8 @@
                                         <span class="label label-info label-many">{{ $singleRole->title }}</span>
                                     @endforeach
                                 </td>
+                                <td field-key='team'>{{ $user->team->name or '' }}</td>
+                                <td field-key='approved'>{{ Form::checkbox("approved", 1, $user->approved == 1 ? true : false, ["disabled"]) }}</td>
                                                                 <td>
                                     @can('user_view')
                                     <a href="{{ route('admin.users.show',[$user->id]) }}" class="btn btn-xs btn-primary">@lang('global.app_view')</a>
@@ -70,7 +74,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10">@lang('global.app_no_entries_in_table')</td>
+                            <td colspan="12">@lang('global.app_no_entries_in_table')</td>
                         </tr>
                     @endif
                 </tbody>
